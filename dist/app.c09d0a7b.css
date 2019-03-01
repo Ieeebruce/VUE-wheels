@@ -11,12 +11,24 @@
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--button-background);
+  color: var(--color);
+}
+.g-button > .icon {
+  fill: var(--color);
 }
 .g-button:hover {
   border-color: var(--button-color-hover);
+  color: var(--color-hover);
+}
+.g-button:hover > .icon {
+  fill: var(--color-hover);
 }
 .g-button:active {
-  background: var(--button-active-background);
+  color: var(--color-active);
+  border-color: var(--border-color-active);
+}
+.g-button:active > .icon {
+  fill: var(--color-active);
 }
 .g-button > .icon {
   order: 1;

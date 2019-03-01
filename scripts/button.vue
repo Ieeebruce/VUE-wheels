@@ -35,11 +35,21 @@ export default {
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--button-background);
+  color: var(--color);
+  > .icon{fill:var(--color)};
   &:hover {
     border-color: var(--button-color-hover);
+    color: var(--color-hover);
+    > .icon {
+      fill: var(--color-hover);
+    }
   }
   &:active {
-    background: var(--button-active-background);
+    color: var(--color-active);
+    border-color: var(--border-color-active);
+    > .icon {
+      fill: var(--color-active);
+    }
   }
   > .icon {
     order: 1;

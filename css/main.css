@@ -8,11 +8,13 @@
     --button-height: 32px;
     --font-size: 14px;
     --button-background: #FFF;
-    --button-active-background: #EEE;
     --border-radius: 4px;
     --color: #333;
-    --border-color: #999;
-    --border-color-hover: #666;
+    --color-hover: #5cadff;
+    --color-active:#3091f2;
+    --border-color: #666;
+    --border-color-hover: #5cadff;
+    --border-color-active:#3091f2;
 }
 
 #app {
