@@ -1,6 +1,6 @@
 <template>
   <button class="g-button" v-bind:class="`icon-${iconPosition}`">
-    <g-icon v-if="icon" :name="icon"></g-icon>
+    <g-icon v-if="icon" :name="icon" class="icon"></g-icon>
     <div class="content">
       <slot></slot>
     </div>
