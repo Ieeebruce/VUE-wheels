@@ -12373,6 +12373,20 @@ var _default = {
   // props: ["icon", "iconPosition"]
   props: {
     icon: {},
+    type: {
+      type: String,
+      default: "default",
+      validator: function validator(value) {
+        return value === "default" || "primary" || "ghost" || "disabled";
+      }
+    },
+    shape: {
+      type: String,
+      default: "default",
+      validator: function validator(value) {
+        return value === "default" || "circle";
+      }
+    },
     iconPosition: {
       type: String,
       default: "left",
@@ -12397,7 +12411,11 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "button",
-    { staticClass: "g-button", class: "icon-" + _vm.iconPosition },
+    {
+      staticClass: "g-button",
+      class:
+        "icon-" + _vm.iconPosition + " icon-" + _vm.type + " icon-" + _vm.shape
+    },
     [
       _vm.icon
         ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
@@ -12551,7 +12569,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59926" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61999" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -1,5 +1,5 @@
 <template>
-  <button class="g-button" v-bind:class="`icon-${iconPosition}`">
+  <button class="g-button" v-bind:class="`icon-${iconPosition} icon-${type} icon-${shape}`">
     <g-icon v-if="icon" :name="icon" class="icon"></g-icon>
     <div class="content">
       <slot></slot>
@@ -11,6 +11,20 @@ export default {
   // props: ["icon", "iconPosition"]
   props: {
     icon: {},
+    type: {
+      type: String,
+      default: "default",
+      validator(value) {
+        return value === "default" || "primary" || "ghost" || "disabled";
+      }
+    },
+    shape: {
+      type: String,
+      default: "default",
+      validator(value) {
+        return value === "default" || "circle";
+      }
+    },
     iconPosition: {
       type: String,
       default: "left",
@@ -36,7 +50,9 @@ export default {
   border: 1px solid var(--border-color);
   background: var(--button-background);
   color: var(--color);
-  > .icon{fill:var(--color)};
+  > .icon {
+    fill: var(--color);
+  }
   &:hover {
     border-color: var(--button-color-hover);
     color: var(--color-hover);
@@ -46,7 +62,7 @@ export default {
   }
   &:active {
     color: var(--color-active);
-    border-color: var(--border-color-active);
+    border-color: var(--color-active);
     > .icon {
       fill: var(--color-active);
     }
@@ -67,6 +83,21 @@ export default {
       margin-left: 0.3em;
       margin-right: 0;
     }
+  }
+  &.icon-primary {
+    color: var(--color-primary);
+    background: var(--color-active);
+    border-color: var(--color-active);
+    > .icon {
+      fill: var(--color-primary);
+    }
+    &:hover {
+      background: var(--color-hover);
+      border-color: var(--color-hover);
+    }
+  }
+  &.icon-circle{
+    border-radius: var(--button-height);
   }
 }
 </style>

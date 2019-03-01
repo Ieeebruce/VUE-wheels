@@ -25,7 +25,7 @@
 }
 .g-button:active {
   color: var(--color-active);
-  border-color: var(--border-color-active);
+  border-color: var(--color-active);
 }
 .g-button:active > .icon {
   fill: var(--color-active);
@@ -44,6 +44,21 @@
   order: 2;
   margin-left: 0.3em;
   margin-right: 0;
+}
+.g-button.icon-primary {
+  color: var(--color-primary);
+  background: var(--color-active);
+  border-color: var(--color-active);
+}
+.g-button.icon-primary > .icon {
+  fill: var(--color-primary);
+}
+.g-button.icon-primary:hover {
+  background: var(--color-hover);
+  border-color: var(--color-hover);
+}
+.g-button.icon-circle {
+  border-radius: var(--button-height);
 }.g-icon {
   width: 1em;
   height: 1em;

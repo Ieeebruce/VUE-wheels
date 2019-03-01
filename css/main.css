@@ -9,12 +9,11 @@
     --font-size: 14px;
     --button-background: #FFF;
     --border-radius: 4px;
+    --color-primary: #fff;
     --color: #333;
     --color-hover: #5cadff;
-    --color-active:#3091f2;
+    --color-active: #3091f2;
     --border-color: #666;
-    --border-color-hover: #5cadff;
-    --border-color-active:#3091f2;
 }
 
 #app {
