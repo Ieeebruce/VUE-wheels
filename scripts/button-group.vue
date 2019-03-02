@@ -21,7 +21,7 @@ export default {
   > .g-button {
     border-radius: 0;
     &:not(:first-child) {
-      margin-left: var(--border-width-);
+      margin-left: calc(var(--border-width)*-1);
     }
     &:last-child {
       border-bottom-right-radius: var(--border-radius);

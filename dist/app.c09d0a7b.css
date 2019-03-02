@@ -81,7 +81,7 @@
   border-radius: 0;
 }
 .button-group > .g-button:not(:first-child) {
-  margin-left: var(--border-width-);
+  margin-left: calc(var(--border-width)*-1);
 }
 .button-group > .g-button:last-child {
   border-bottom-right-radius: var(--border-radius);
