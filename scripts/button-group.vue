@@ -4,7 +4,15 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+    mounted(){
+        for(let node of this.$el.children){
+            if(node.nodeName.toLowerCase() !== 'button'){
+                console.warn(`<g-button-group>的子元素应该全是<g-button>，不应该有${node.nodeName.toLowerCase()}`)
+            }
+        }
+    }
+};
 </script>
 <style lang="scss">
 .button-group {
