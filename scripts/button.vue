@@ -1,6 +1,11 @@
 <template>
-  <button class="g-button" v-bind:class="`icon-${iconPosition} icon-${type} icon-${shape}`">
-    <g-icon v-if="icon" :name="icon" class="icon"></g-icon>
+  <button
+    class="g-button"
+    v-bind:class="`icon-${iconPosition} ${type} ${shape}`"
+    @click="$emit('click')"
+  >
+    <g-icon v-if="icon && !load" :name="icon" class="icon"></g-icon>
+    <g-icon v-if="load" name="loading" class="icon loading"></g-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -11,6 +16,10 @@ export default {
   // props: ["icon", "iconPosition"]
   props: {
     icon: {},
+    load: {
+      type: Boolean,
+      default: false
+    },
     type: {
       type: String,
       default: "default",
@@ -20,9 +29,9 @@ export default {
     },
     shape: {
       type: String,
-      default: "default",
+      default: "triangle",
       validator(value) {
-        return value === "default" || "circle";
+        return value === "triangle" || "circle";
       }
     },
     iconPosition: {
@@ -37,6 +46,18 @@ export default {
 </script>
 <style lang='scss'>
 .g-button {
+  > .loading {
+    animation: spin 1.5s infinite linear;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +105,7 @@ export default {
       margin-right: 0;
     }
   }
-  &.icon-primary {
+  &.primary {
     color: var(--color-primary);
     background: var(--color-active);
     border-color: var(--color-active);
@@ -96,7 +117,7 @@ export default {
       border-color: var(--color-hover);
     }
   }
-  &.icon-circle{
+  &.circle {
     border-radius: var(--button-height);
   }
 }

@@ -13,6 +13,17 @@
   background: var(--button-background);
   color: var(--color);
 }
+.g-button > .loading {
+  animation: spin 1.5s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .g-button > .icon {
   fill: var(--color);
 }
@@ -45,19 +56,19 @@
   margin-left: 0.3em;
   margin-right: 0;
 }
-.g-button.icon-primary {
+.g-button.primary {
   color: var(--color-primary);
   background: var(--color-active);
   border-color: var(--color-active);
 }
-.g-button.icon-primary > .icon {
+.g-button.primary > .icon {
   fill: var(--color-primary);
 }
-.g-button.icon-primary:hover {
+.g-button.primary:hover {
   background: var(--color-hover);
   border-color: var(--color-hover);
 }
-.g-button.icon-circle {
+.g-button.circle {
   border-radius: var(--button-height);
 }.g-icon {
   width: 1em;
