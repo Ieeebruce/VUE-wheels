@@ -14,6 +14,8 @@
     --color-hover: #5cadff;
     --color-active: #3091f2;
     --border-color: #666;
+    --border-width: 1px;
+    --border-width-: -1px;
 }
 
 #app {
