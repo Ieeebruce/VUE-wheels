@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Ieeebruce/VUE-wheels#readme",
   "dependencies": {
-    "vue": "^2.6.7",
+    "vue": "^2.6.8",
     "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
