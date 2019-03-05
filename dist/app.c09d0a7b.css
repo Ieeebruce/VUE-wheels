@@ -1,0 +1,96 @@
+.g-icon {
+  width: 1em;
+  height: 1em;
+}.g-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+  outline: none;
+  font-size: var(--font-size);
+  line-height: var(--font-size);
+  height: var(--button-height);
+  padding: 0 1em;
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
+  background: var(--button-background);
+  color: var(--color);
+}
+.g-button > .loading {
+  animation: spin 1.5s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.g-button > .icon {
+  fill: var(--color);
+}
+.g-button:hover {
+  border-color: var(--button-color-hover);
+  color: var(--color-hover);
+}
+.g-button:hover > .icon {
+  fill: var(--color-hover);
+}
+.g-button:active {
+  color: var(--color-active);
+  border-color: var(--color-active);
+}
+.g-button:active > .icon {
+  fill: var(--color-active);
+}
+.g-button > .icon {
+  order: 1;
+  margin-right: 0.3em;
+}
+.g-button > .content {
+  order: 2;
+}
+.g-button.icon-right > .content {
+  order: 1;
+}
+.g-button.icon-right > .icon {
+  order: 2;
+  margin-left: 0.3em;
+  margin-right: 0;
+}
+.g-button.primary {
+  color: var(--color-primary);
+  background: var(--color-active);
+  border-color: var(--color-active);
+}
+.g-button.primary > .icon {
+  fill: var(--color-primary);
+}
+.g-button.primary:hover {
+  background: var(--color-hover);
+  border-color: var(--color-hover);
+}
+.g-button.circle {
+  border-radius: var(--button-height);
+}.button-group {
+  display: inline-flex;
+  vertical-align: top;
+}
+.button-group > .g-button {
+  border-radius: 0;
+}
+.button-group > .g-button:not(:first-child) {
+  margin-left: calc(var(--border-width)*-1);
+}
+.button-group > .g-button:last-child {
+  border-bottom-right-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+.button-group > .g-button:first-child {
+  border-bottom-left-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+}
+.button-group > .g-button:hover, .button-group > .g-button:active {
+  z-index: 1;
+}
