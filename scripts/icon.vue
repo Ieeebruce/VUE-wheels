@@ -5,14 +5,14 @@
 </template>
 <script>
 export default {
+  name: 'gulu-icon',
   props: ["name"]
 };
 </script>
-<style>
+<style lang='scss' scoped>
 .g-icon {
   width: 1em;
   height: 1em;
 }
-
 </style>
 

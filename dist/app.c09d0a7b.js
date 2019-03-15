@@ -12372,6 +12372,7 @@ exports.default = void 0;
 //
 //
 var _default = {
+  name: 'gulu-icon',
   props: ["name"]
 };
 exports.default = _default;
@@ -12398,7 +12399,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-d95001",
             functional: undefined
           };
         })());
@@ -12450,10 +12451,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
+  name: 'g-button',
   components: {
     "g-icon": _icon.default
   },
-  // props: ["icon", "iconPosition"]
   props: {
     icon: {},
     load: {
@@ -12531,7 +12532,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-5f0cbf",
             functional: undefined
           };
         })());
@@ -12570,6 +12571,7 @@ exports.default = void 0;
 //
 //
 var _default = {
+  name: "guli-button-group",
   mounted: function mounted() {
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
@@ -12579,7 +12581,7 @@ var _default = {
       for (var _iterator = this.$el.children[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var node = _step.value;
 
-        if (node.nodeName.toLowerCase() !== 'button') {
+        if (node.nodeName.toLowerCase() !== "button") {
           console.warn("<g-button-group>\u7684\u5B50\u5143\u7D20\u5E94\u8BE5\u5168\u662F<g-button>\uFF0C\u4E0D\u5E94\u8BE5\u6709".concat(node.nodeName.toLowerCase()));
         }
       }
@@ -12621,7 +12623,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-f1830c",
             functional: undefined
           };
         })());
@@ -12647,6 +12649,79 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"scripts/input.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+var _default = {
+  name: "gulu-input",
+  props: {}
+};
+exports.default = _default;
+        var $8ce94a = exports.default || module.exports;
+      
+      if (typeof $8ce94a === 'function') {
+        $8ce94a = $8ce94a.options;
+      }
+    
+        /* template */
+        Object.assign($8ce94a, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "wrapper" }, [
+      _c("input", { attrs: { type: "text" } })
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-8ce94a",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$8ce94a', $8ce94a);
+          } else {
+            api.reload('$8ce94a', $8ce94a);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"scripts/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -12656,11 +12731,15 @@ var _button = _interopRequireDefault(require("./button"));
 
 var _buttonGroup = _interopRequireDefault(require("./button-group"));
 
+var _input = _interopRequireDefault(require("./input"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('g-button-group', _buttonGroup.default);
 
 _vue.default.component('g-button', _button.default);
+
+_vue.default.component('g-input', _input.default);
 
 new _vue.default({
   el: '#app',
@@ -12670,7 +12749,7 @@ new _vue.default({
     loading3: true
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"scripts/button.vue","./button-group":"scripts/button-group.vue"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"scripts/button.vue","./button-group":"scripts/button-group.vue","./input":"scripts/input.vue"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12697,7 +12776,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57565" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53010" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

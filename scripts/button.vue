@@ -14,10 +14,10 @@
 <script>
 import Icon from "./icon";
 export default {
+  name: 'g-button',
   components: {
     "g-icon": Icon
   },
-  // props: ["icon", "iconPosition"]
   props: {
     icon: {},
     load: {
@@ -48,7 +48,7 @@ export default {
   }
 };
 </script>
-<style lang='scss'>
+<style lang='scss' scoped>
 .g-button {
   > .loading {
     animation: spin 1.5s infinite linear;
@@ -61,35 +61,45 @@ export default {
       transform: rotate(360deg);
     }
   }
+ $button-height: 32px;
+  $font-size: 14px;
+  $button-background: #fff;
+  $border-radius: 4px;
+  $color: #333;
+  $color-primary: #fff;
+  $color-hover: #5cadff;
+  $color-active: #3091f2;
+  $border-color: #666;
+  $border-width: 1px;
 
   display: inline-flex;
   justify-content: center;
   align-items: center;
   vertical-align: top;
   outline: none;
-  font-size: var(--font-size);
-  line-height: var(--font-size);
-  height: var(--button-height);
+  font-size: 14px;
+  line-height: 14px;
+  height: $button-height;
   padding: 0 1em;
-  border-radius: var(--border-radius);
-  border: var(--border-width) solid var(--border-color);
-  background: var(--button-background);
-  color: var(--color);
+  border-radius: $border-radius;
+  border: $border-width solid $border-color;
+  background: $button-background;
+  color: $color;
   > .icon {
-    fill: var(--color);
+    fill: $color;
   }
   &:hover {
-    border-color: var(--button-color-hover);
-    color: var(--color-hover);
+    border-color: $color-hover;
+    color: $color-hover;
     > .icon {
-      fill: var(--color-hover);
+      fill: $color-hover;
     }
   }
   &:active {
-    color: var(--color-active);
-    border-color: var(--color-active);
+    color: $color-active;
+    border-color: $color-active;
     > .icon {
-      fill: var(--color-active);
+      fill: $color-active;
     }
   }
   > .icon {
@@ -110,19 +120,19 @@ export default {
     }
   }
   &.primary {
-    color: var(--color-primary);
-    background: var(--color-active);
-    border-color: var(--color-active);
+    color: $color-primary;
+    background: $color-active;
+    border-color: $color-active;
     > .icon {
-      fill: var(--color-primary);
+      fill: $color-primary;
     }
     &:hover {
-      background: var(--color-hover);
-      border-color: var(--color-hover);
+      background: $color-hover;
+      border-color: $color-hover;
     }
   }
   &.circle {
-    border-radius: var(--button-height);
+    border-radius: $button-height;
   }
 }
 </style>
