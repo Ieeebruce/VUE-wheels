@@ -4,8 +4,8 @@
     v-bind:class="`icon-${iconPosition} ${type} ${shape}`"
     @click="$emit('click')"
   >
-    <g-icon v-if="icon && !load" :name="icon" class="icon"></g-icon>
-    <g-icon v-if="load" name="loading" class="icon loading"></g-icon>
+    <gulu-icon v-if="icon && !load" :name="icon" class="icon"></gulu-icon>
+    <gulu-icon v-if="load" name="loading" class="icon loading"></gulu-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -14,9 +14,9 @@
 <script>
 import Icon from "./icon";
 export default {
-  name: 'g-button',
+  name: 'gulu-button',
   components: {
-    "g-icon": Icon
+    "gulu-icon": Icon
   },
   props: {
     icon: {},
