@@ -12,12 +12,13 @@
 <body>
     <div id="app">
         <div class="area">
-            <g-input content="输入框"></g-input>
-            <g-input content="输入框" disabled=""></g-input>
-            <g-input content="输入框" readonly=""></g-input>
+            <g-input @change="inputChange" v-model="message"></g-input>
+            <p>{{message}}</p>
+            <g-input value="输入框" disabled=""></g-input>
+            <g-input value="输入框" readonly=""></g-input>
         </div>
         <div class="area">
-            <g-input content="输入框" error="姓名必须两个字符以上"></g-input>
+            <g-input value="输入框" error="姓名必须两个字符以上"></g-input>
         </div>
         <div class="area">
             <g-button :load="loading1" @click="loading1=!loading1">按钮</g-button>

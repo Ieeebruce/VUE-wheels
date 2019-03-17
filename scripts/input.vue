@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper" :class="{error}">
-    <input type="text" :value="content" :disabled="disabled" :readonly="readonly">
+    <input type="text" :value="value"
+     :disabled="disabled" :readonly="readonly"
+     @change="$emit('change',$event.target.value)" 
+     @input="$emit('input',$event.target.value)"
+     @focus="$emit('focus',$event.target.value)"
+     @blur="$emit('blur',$event.target.value)">
     <template v-if="error">
       <gulu-icon name="error"></gulu-icon>
       <span>{{error}}</span>
@@ -15,7 +20,7 @@ export default {
   },
   name: "gulu-input",
   props: {
-    content: {
+    value: {
       type: String
     },
     disabled: {
@@ -28,7 +33,7 @@ export default {
     },
     error: {
       type: String
-    }
+    },
   }
 };
 </script>
@@ -61,7 +66,7 @@ $font-size: 14px;
     }
     &:focus {
       outline: none;
-      box-shadow: inset 0 0 1px 1px #999;
+      box-shadow: 0 0 0 1px #999;
     }
     &[disabled] {
       border-color: #999;

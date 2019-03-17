@@ -12372,6 +12372,7 @@ exports.default = void 0;
 //
 //
 var _default = {
+  name: 'gulu-icon',
   props: ["name"]
 };
 exports.default = _default;
@@ -12398,7 +12399,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-d95001",
             functional: undefined
           };
         })());
@@ -12450,10 +12451,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
+  name: 'gulu-button',
   components: {
-    "g-icon": _icon.default
+    "gulu-icon": _icon.default
   },
-  // props: ["icon", "iconPosition"]
   props: {
     icon: {},
     load: {
@@ -12509,11 +12510,11 @@ exports.default = _default;
     },
     [
       _vm.icon && !_vm.load
-        ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        ? _c("gulu-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
         : _vm._e(),
       _vm._v(" "),
       _vm.load
-        ? _c("g-icon", {
+        ? _c("gulu-icon", {
             staticClass: "icon loading",
             attrs: { name: "loading" }
           })
@@ -12531,7 +12532,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-5f0cbf",
             functional: undefined
           };
         })());
@@ -12673,7 +12674,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61121" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54849" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
