@@ -12,6 +12,19 @@
 <body>
     <div id="app">
         <div class="area">
+            <div style="border:1px solid red">
+                <g-row gap='10'>
+                    <g-col>1</g-col>
+                    <g-col>1</g-col>
+                </g-row>
+                <g-row gap="100">
+                    <g-col span="2">2</g-col>
+                    <g-col span="22">1</g-col>
+                </g-row>
+            </div>
+
+        </div>
+        <div class="area">
             <g-input @change="inputChange" v-model="message"></g-input>
             <p>{{message}}</p>
         </div>
