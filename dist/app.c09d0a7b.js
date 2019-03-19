@@ -12800,14 +12800,18 @@ var _default = {
     span: {
       type: [Number, String],
       default: 24
+    },
+    offset: {
+      type: [Number, String],
+      default: 0
     }
   },
   computed: {
     styleCol: function styleCol() {
       var gap = this.gap;
       return {
-        marginLeft: gap / 2 + "px",
-        marginRight: gap / 2 + "px"
+        paddingLeft: gap / 2 + "px",
+        paddingRight: gap / 2 + "px"
       };
     }
   }
@@ -12827,9 +12831,19 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "col", class: ["col-" + _vm.span], style: _vm.styleCol },
-    [_vm._t("default")],
-    2
+    {
+      staticClass: "col",
+      class: ["span-" + _vm.span, "offset-" + _vm.offset],
+      style: _vm.styleCol
+    },
+    [
+      _c(
+        "div",
+        { staticStyle: { border: "1px solid red" } },
+        [_vm._t("default")],
+        2
+      )
+    ]
   )
 }
 var staticRenderFns = []
@@ -13022,7 +13036,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55188" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61340" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

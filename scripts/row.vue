@@ -16,7 +16,7 @@ export default {
       let { gap } = this;
       return {
         marginLeft: -gap / 2 + "px",
-        marginRight: -gap /2 + "px"
+        marginRight: -gap / 2 + "px"
       };
     }
   },
@@ -29,7 +29,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .row {
- 
+  margin: 10px 0;
   display: flex;
 }
 </style>

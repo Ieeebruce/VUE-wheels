@@ -1,6 +1,6 @@
 <template>
-  <div class="col" :class="[`col-${span}`]" :style="styleCol">
-      <slot></slot>
+  <div class="col" :class="[`span-${span}`,`offset-${offset}`]" :style="styleCol">
+    <div style="border:1px solid red"><slot></slot></div>
   </div>
 </template>
 <script>
@@ -15,12 +15,16 @@ export default {
     span: {
       type: [Number, String],
       default: 24
+    },
+    offset: {
+      type: [Number, String],
+      default: 0
     }
   },
   computed: {
     styleCol() {
       let { gap } = this;
-      return { marginLeft: gap / 2 + "px", marginRight: gap / 2 + "px" };
+      return { paddingLeft: gap / 2 + "px", paddingRight: gap / 2 + "px" };
     }
   }
 };
@@ -28,8 +32,7 @@ export default {
 <style lang="scss" scoped>
 .col {
   height: 30px;
-background-color: #bbb;
-  $class-pre: col-;
+  $class-pre: span-;
   @for $n from 1 through 24 {
     &.#{$class-pre}#{$n} {
       width: ($n / 24) * 100%;
@@ -38,7 +41,7 @@ background-color: #bbb;
   $class-prefix: offset-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
-      margin-left: ($n / 24) * 100%;
+      margin-right: ($n / 24) * 100%;
     }
   }
 }
