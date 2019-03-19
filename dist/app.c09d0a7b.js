@@ -12784,11 +12784,33 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 //
 //
 //
 //
 //
+//
+//
+var validator = function validator(value) {
+  var keys = Object.keys(value);
+  var valid = true;
+  keys.forEach(function (key) {
+    if (!["span", "offset"].includes(key)) {
+      valid = false;
+    }
+  });
+  return valid;
+};
+
 var _default = {
   name: "gulu-col",
   data: function data() {
@@ -12804,15 +12826,64 @@ var _default = {
     offset: {
       type: [Number, String],
       default: 0
+    },
+    ipad: {
+      type: Object,
+      validator: validator
+    },
+    narrowPc: {
+      type: Object,
+      validator: validator
+    },
+    pc: {
+      type: Object,
+      validator: validator
+    },
+    widePc: {
+      type: Object,
+      validator: validator
+    }
+  },
+  methods: {
+    createClasses: function createClasses(obj) {
+      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+
+      if (!obj) {
+        return [];
+      }
+
+      var array = [];
+
+      if (obj.span) {
+        array.push("span-".concat(str).concat(obj.span));
+      }
+
+      if (obj.offset) {
+        array.push("offset-".concat(str).concat(obj.offset));
+      }
+
+      return array;
     }
   },
   computed: {
     styleCol: function styleCol() {
-      var gap = this.gap;
       return {
-        paddingLeft: gap / 2 + "px",
-        paddingRight: gap / 2 + "px"
+        paddingLeft: this.gap / 2 + "px",
+        paddingRight: this.gap / 2 + "px"
       };
+    },
+    classRow: function classRow() {
+      var span = this.span,
+          offset = this.offset,
+          ipad = this.ipad,
+          narrowPc = this.narrowPc,
+          pc = this.pc,
+          widePc = this.widePc;
+      var createClasses = this.createClasses;
+      return [].concat(_toConsumableArray(createClasses({
+        span: span,
+        offset: offset
+      })), _toConsumableArray(createClasses(ipad, "ipad-")), _toConsumableArray(createClasses(narrowPc, "narrow-pc-")), _toConsumableArray(createClasses(pc, "pc-")), _toConsumableArray(createClasses(widePc, "wide-pc-")));
     }
   }
 };
@@ -12831,11 +12902,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "col",
-      class: ["span-" + _vm.span, "offset-" + _vm.offset],
-      style: _vm.styleCol
-    },
+    { staticClass: "col", class: _vm.classRow, style: _vm.styleCol },
     [
       _c(
         "div",
@@ -13036,7 +13103,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61340" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55431" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
