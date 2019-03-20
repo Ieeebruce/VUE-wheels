@@ -9,6 +9,7 @@ import Header from './layout/header'
 import Asider from './layout/asider'
 import Footer from './layout/footer'
 import Main from './layout/main'
+import Toast from './toast'
 Vue.component('g-button-group', Buttongroup)
 Vue.component('g-button', Button)
 Vue.component('g-input', Input)
@@ -19,6 +20,7 @@ Vue.component('g-header', Header)
 Vue.component('g-footer', Footer)
 Vue.component('g-main', Main)
 Vue.component('g-asider',Asider)
+Vue.component('g-toast', Toast)
 new Vue({
     el: '#app',
     data: {
