@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import Button from './button'
-import Buttongroup from './button-group'
+import Button from './button/button'
+import Buttongroup from './button/button-group'
 import Input from './input'
 import Col from './col'
 import Row from './row'
@@ -9,7 +9,8 @@ import Header from './layout/header'
 import Asider from './layout/asider'
 import Footer from './layout/footer'
 import Main from './layout/main'
-import Toast from './toast'
+import Toast from './toast/toast'
+import plugin from './toast/plugin'
 Vue.component('g-button-group', Buttongroup)
 Vue.component('g-button', Button)
 Vue.component('g-input', Input)
@@ -19,8 +20,9 @@ Vue.component('g-layout', Layout)
 Vue.component('g-header', Header)
 Vue.component('g-footer', Footer)
 Vue.component('g-main', Main)
-Vue.component('g-asider',Asider)
+Vue.component('g-asider', Asider)
 Vue.component('g-toast', Toast)
+Vue.use(plugin)
 new Vue({
     el: '#app',
     data: {
@@ -29,9 +31,13 @@ new Vue({
         loading3: true,
         message: 'hi'
     },
+    created() {
+        
+    },
     methods: {
-        inputChange(e) {
-            console.log(e.target.value)
+        showToast(){
+            this.$toast("hi")
         }
     }
+
 })

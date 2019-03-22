@@ -10,26 +10,8 @@
 </head>
 
 <body>
-    <style>
-        .main{
-            height: 500px;
-        }
-    </style>
     <div id="app">
-        <!-- <g-layout>
-            <g-header>header</g-header>
-            <g-main>main</g-main>
-            <g-footer>footer</g-footer>
-        </g-layout> -->
-        <g-layout>
-            <g-header>header</g-header>
-            <g-layout>
-                
-                <g-main>main</g-main><g-asider>asider</g-asider>
-            </g-layout>
-            <g-footer>footer</g-footer>
-        </g-layout>
-        
+        <button @click = "showToast" :autoClose="false" :message="warning">click me</button>
     </div>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/svg.js"></script>
