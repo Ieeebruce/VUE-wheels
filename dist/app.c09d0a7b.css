@@ -93,9 +93,6 @@ to {
 }
 .button-group > .g-button[data-v-7c0ffe]:hover, .button-group > .g-button[data-v-7c0ffe]:active {
   z-index: 1;
-}.g-icon[data-v-d95001] {
-  width: 1em;
-  height: 1em;
 }.wrapper[data-v-8ce94a] {
   font-size: 14px;
   display: inline-block;
@@ -882,7 +879,7 @@ to {
   flex-grow: 1;
 }.toast[data-v-6822df] {
   font-size: 14px;
-  height: 40px;
+  min-height: 40px;
   line-height: 40px;
   position: fixed;
   top: 0;
@@ -901,4 +898,45 @@ to {
   height: 40px;
   flex-grow: 1;
   border-left: 1px solid white;
+}*[data-v-ba0ffe] {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.tabs-head[data-v-ba0ffe] {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+.tabs-head > .line[data-v-ba0ffe] {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 2px solid #4A90E2;
+  transition: all 300ms;
+}
+.tabs-head > .actions-wrapper[data-v-ba0ffe] {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+}.tabs-body[data-v-0bfff7] {}.tabs-item[data-v-ecd931] {
+  flex-shrink: 0;
+  padding: 0 1em;
+  height: 100%;
+  font-family: PingFangSC-Regular;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.tabs-item.active[data-v-ecd931] {
+  color: #4A90E2;
+}
+.tabs-item.disabled[data-v-ecd931] {
+  color: gray;
+  cursor: default;
+}.tabs-pane[data-v-0a1aef] {
+  padding: 1em;
 }

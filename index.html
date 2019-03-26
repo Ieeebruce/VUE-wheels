@@ -11,7 +11,17 @@
 
 <body>
     <div id="app">
-        <button @click = "showToast" :autoClose="false" :message="warning">click me</button>
+        <g-tabs selected="selectedTab" @update:selected="selectedTab = $event">
+                <!-- <g-tabs :selected.sync="selectedTab"> -->
+            <g-tabs-head>
+                <g-tabs-item name="tab1">科技</g-tabs-item>
+                <g-tabs-item name="tab2">体育</g-tabs-item>
+            </g-tabs-head>
+            <g-tabs-body>
+                <g-tans-pane name="tab1">科技新闻，iPhone12发布</g-tans-pane>
+                <g-tans-pane name="tab2">体育新闻</g-tans-pane>
+            </g-tabs-body>
+        </g-tabs>
     </div>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/svg.js"></script>

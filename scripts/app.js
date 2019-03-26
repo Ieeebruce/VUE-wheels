@@ -11,6 +11,11 @@ import Footer from './layout/footer'
 import Main from './layout/main'
 import Toast from './toast/toast'
 import plugin from './toast/plugin'
+import Tabs from './tabs/tabs'
+import TabsHead from './tabs/tabs-head'
+import TabsBody from './tabs/tabs-body'
+import TabsItem from './tabs/tabs-item'
+import TabsPane from './tabs/tabs-pane'
 Vue.component('g-button-group', Buttongroup)
 Vue.component('g-button', Button)
 Vue.component('g-input', Input)
@@ -22,6 +27,12 @@ Vue.component('g-footer', Footer)
 Vue.component('g-main', Main)
 Vue.component('g-asider', Asider)
 Vue.component('g-toast', Toast)
+Vue.component('g-tabs-head', TabsHead)
+Vue.component('g-tabs-body', TabsBody)
+Vue.component('g-tabs-item', TabsItem)
+Vue.component('g-tabs-pane', TabsPane)
+Vue.component('g-tabs', Tabs)
+
 Vue.use(plugin)
 new Vue({
     el: '#app',
@@ -29,14 +40,14 @@ new Vue({
         loading1: true,
         loading2: true,
         loading3: true,
-        message: 'hi'
+        message: "hello",
     },
     created() {
-        
+
     },
     methods: {
-        showToast(){
-            this.$toast("hi")
+        showToast() {
+            this.$toast("message")
         }
     }
 

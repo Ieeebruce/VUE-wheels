@@ -18,6 +18,9 @@ export default {
       type: Number,
       default: 2
     },
+    message: {
+      type: String,
+    },
     closeButton:{
         type:Object,
         default:{
@@ -50,7 +53,7 @@ $toast-width: 50%;
 $toast-bg: #333;
 .toast {
   font-size: $font-size;
-  height: $toast-height;
+  min-height: $toast-height;
   line-height: $toast-height;
   position: fixed;
   top: 0;
