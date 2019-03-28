@@ -1000,4 +1000,15 @@ to {
   cursor: default;
 }.tabs-pane[data-v-0a1aef] {
   padding: 1em;
+}.popover[data-v-66cd99] {
+  display: inline-block;
+  border: 1px solid red;
+  position: relative;
+  top: 100px;
+  left: 100px;
+}
+.popover .content-wrapper[data-v-66cd99] {
+  position: absolute;
+  border: 1px solid #bbb;
+  bottom: 100%;
 }

@@ -11,7 +11,12 @@
 
 <body>
     <div id="app">
-       <g-toast :auto-close='false' position='middle'>click</g-toast>
+       <g-popover>
+           <template slot="content">
+                <div>我是要弹出的内容</div>
+           </template>       
+               <button>click</button>     
+       </g-popover>
     </div>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/svg.js"></script>

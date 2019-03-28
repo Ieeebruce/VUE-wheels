@@ -14060,6 +14060,117 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"scripts/popover.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "gulu-popover",
+  data: function data() {
+    return {
+      visible: false
+    };
+  },
+  methods: {
+    click: function click(e) {
+      var _this = this;
+
+      e.stopPropagation();
+      this.visible = !this.visible;
+
+      if (this.visible === true) {
+        document.addEventListener("click", function () {
+          _this.visible = false;
+          console.log(1);
+        }, {
+          once: true
+        });
+      }
+    }
+  }
+};
+exports.default = _default;
+        var $66cd99 = exports.default || module.exports;
+      
+      if (typeof $66cd99 === 'function') {
+        $66cd99 = $66cd99.options;
+      }
+    
+        /* template */
+        Object.assign($66cd99, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "popover", on: { click: _vm.click } },
+    [
+      _vm.visible
+        ? _c(
+            "div",
+            {
+              staticClass: "content-wrapper",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                }
+              }
+            },
+            [_vm._t("content")],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._t("default")
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-66cd99",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$66cd99', $66cd99);
+          } else {
+            api.reload('$66cd99', $66cd99);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"scripts/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -14099,6 +14210,8 @@ var _tabsItem = _interopRequireDefault(require("./tabs/tabs-item"));
 
 var _tabsPane = _interopRequireDefault(require("./tabs/tabs-pane"));
 
+var _popover = _interopRequireDefault(require("./popover"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('g-button-group', _buttonGroup.default);
@@ -14133,6 +14246,8 @@ _vue.default.component('g-tabs-pane', _tabsPane.default);
 
 _vue.default.component('g-tabs', _tabs.default);
 
+_vue.default.component('g-popover', _popover.default);
+
 _vue.default.use(_plugin.default);
 
 new _vue.default({
@@ -14150,7 +14265,7 @@ new _vue.default({
     }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button/button":"scripts/button/button.vue","./button/button-group":"scripts/button/button-group.vue","./input":"scripts/input.vue","./col":"scripts/col.vue","./row":"scripts/row.vue","./layout/layout":"scripts/layout/layout.vue","./layout/header":"scripts/layout/header.vue","./layout/asider":"scripts/layout/asider.vue","./layout/footer":"scripts/layout/footer.vue","./layout/main":"scripts/layout/main.vue","./toast/toast":"scripts/toast/toast.vue","./toast/plugin":"scripts/toast/plugin.js","./tabs/tabs":"scripts/tabs/tabs.vue","./tabs/tabs-head":"scripts/tabs/tabs-head.vue","./tabs/tabs-body":"scripts/tabs/tabs-body.vue","./tabs/tabs-item":"scripts/tabs/tabs-item.vue","./tabs/tabs-pane":"scripts/tabs/tabs-pane.vue"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button/button":"scripts/button/button.vue","./button/button-group":"scripts/button/button-group.vue","./input":"scripts/input.vue","./col":"scripts/col.vue","./row":"scripts/row.vue","./layout/layout":"scripts/layout/layout.vue","./layout/header":"scripts/layout/header.vue","./layout/asider":"scripts/layout/asider.vue","./layout/footer":"scripts/layout/footer.vue","./layout/main":"scripts/layout/main.vue","./toast/toast":"scripts/toast/toast.vue","./toast/plugin":"scripts/toast/plugin.js","./tabs/tabs":"scripts/tabs/tabs.vue","./tabs/tabs-head":"scripts/tabs/tabs-head.vue","./tabs/tabs-body":"scripts/tabs/tabs-body.vue","./tabs/tabs-item":"scripts/tabs/tabs-item.vue","./tabs/tabs-pane":"scripts/tabs/tabs-pane.vue","./popover":"scripts/popover.vue"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -14177,7 +14292,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49936" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63726" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
