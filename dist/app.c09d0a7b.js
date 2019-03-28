@@ -14077,38 +14077,158 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   name: "gulu-popover",
+  props: {
+    popClassName: {
+      type: String
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator: function validator(value) {
+        return ['click', 'hover'].indexOf(value) >= 0;
+      }
+    },
+    container: {
+      type: Element
+    }
+  },
   data: function data() {
     return {
       visible: false
     };
   },
+  mounted: function mounted() {
+    this.addPopoverListeners();
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.putBackContent();
+    this.removePopoverListeners();
+  },
+  computed: {
+    openEvent: function openEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseenter';
+      }
+    },
+    closeEvent: function closeEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseleave';
+      }
+    }
+  },
   methods: {
-    click: function click(e) {
+    addPopoverListeners: function addPopoverListeners() {
+      if (this.trigger === 'click') {
+        this.$refs.popover.addEventListener('click', this.onClick);
+      } else {
+        this.$refs.popover.addEventListener('mouseenter', this.open);
+        this.$refs.popover.addEventListener('mouseleave', this.close);
+      }
+    },
+    removePopoverListeners: function removePopoverListeners() {
+      if (this.trigger === 'click') {
+        this.$refs.popover.removeEventListener('click', this.onClick);
+      } else {
+        this.$refs.popover.removeEventListener('mouseenter', this.open);
+        this.$refs.popover.removeEventListener('mouseleave', this.close);
+      }
+    },
+    putBackContent: function putBackContent() {
+      var _this$$refs = this.$refs,
+          contentWrapper = _this$$refs.contentWrapper,
+          popover = _this$$refs.popover;
+
+      if (!contentWrapper) {
+        return;
+      }
+
+      popover.appendChild(contentWrapper);
+    },
+    positionContent: function positionContent() {
+      var _this$$refs2 = this.$refs,
+          contentWrapper = _this$$refs2.contentWrapper,
+          triggerWrapper = _this$$refs2.triggerWrapper;
+      (this.container || document.body).appendChild(contentWrapper);
+
+      var _triggerWrapper$getBo = triggerWrapper.getBoundingClientRect(),
+          width = _triggerWrapper$getBo.width,
+          height = _triggerWrapper$getBo.height,
+          top = _triggerWrapper$getBo.top,
+          left = _triggerWrapper$getBo.left;
+
+      var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+          height2 = _contentWrapper$getBo.height;
+
+      var positions = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
+        }
+      };
+      contentWrapper.style.left = positions[this.position].left + 'px';
+      contentWrapper.style.top = positions[this.position].top + 'px';
+    },
+    onClickDocument: function onClickDocument(e) {
+      if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
+        return;
+      }
+
+      if (this.$refs.contentWrapper && (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))) {
+        return;
+      }
+
+      this.close();
+    },
+    open: function open() {
       var _this = this;
 
-      e.stopPropagation();
-      this.visible = !this.visible;
+      this.visible = true;
+      this.$emit('open');
+      this.$nextTick(function () {
+        _this.positionContent();
 
-      if (this.visible === true) {
-        this.$nextTick(function () {
-          document.body.appendChild(_this.$refs.contentWrapper);
-
-          var _this$$refs$triggerWr = _this.$refs.triggerWrapper.getBoundingClientRect(),
-              width = _this$$refs$triggerWr.width,
-              height = _this$$refs$triggerWr.height,
-              top = _this$$refs$triggerWr.top,
-              left = _this$$refs$triggerWr.left;
-
-          _this.$refs.contentWrapper.style.top = top - height + window.scrollY + 'px';
-          _this.$refs.contentWrapper.style.left = left + window.scrollX + 'px';
-          document.addEventListener("click", function () {
-            _this.visible = false;
-          }, {
-            once: true
-          });
-        });
+        document.addEventListener('click', _this.onClickDocument);
+      });
+    },
+    close: function close() {
+      this.visible = false;
+      this.$emit('close');
+      document.removeEventListener('click', this.onClickDocument);
+    },
+    onClick: function onClick(event) {
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        if (this.visible === true) {
+          this.close();
+        } else {
+          this.open();
+        }
       }
     }
   }
@@ -14123,28 +14243,33 @@ exports.default = _default;
         /* template */
         Object.assign($66cd99, (function () {
           var render = function() {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "popover", on: { click: _vm.click } }, [
+  return _c("div", { ref: "popover", staticClass: "popover" }, [
     _vm.visible
       ? _c(
           "div",
           {
             ref: "contentWrapper",
-            staticClass: "content-wrapper",
-            on: {
-              click: function($event) {
-                $event.stopPropagation()
-              }
-            }
+            staticClass: "gulu-popover-content-wrapper",
+            class: [
+              ((_obj = {}), (_obj["position-" + _vm.position] = true), _obj),
+              _vm.popClassName
+            ]
           },
-          [_vm._t("content")],
+          [_vm._t("content", null, { close: _vm.close })],
           2
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("span", { ref: "triggerWrapper" }, [_vm._t("default")], 2)
+    _c(
+      "span",
+      { ref: "triggerWrapper", staticStyle: { display: "inline-block" } },
+      [_vm._t("default")],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -14301,7 +14426,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55009" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59244" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
