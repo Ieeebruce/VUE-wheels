@@ -14075,6 +14075,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   name: "gulu-popover",
   data: function data() {
@@ -14090,11 +14092,22 @@ var _default = {
       this.visible = !this.visible;
 
       if (this.visible === true) {
-        document.addEventListener("click", function () {
-          _this.visible = false;
-          console.log(1);
-        }, {
-          once: true
+        this.$nextTick(function () {
+          document.body.appendChild(_this.$refs.contentWrapper);
+
+          var _this$$refs$triggerWr = _this.$refs.triggerWrapper.getBoundingClientRect(),
+              width = _this$$refs$triggerWr.width,
+              height = _this$$refs$triggerWr.height,
+              top = _this$$refs$triggerWr.top,
+              left = _this$$refs$triggerWr.left;
+
+          _this.$refs.contentWrapper.style.top = top - height + window.scrollY + 'px';
+          _this.$refs.contentWrapper.style.left = left + window.scrollX + 'px';
+          document.addEventListener("click", function () {
+            _this.visible = false;
+          }, {
+            once: true
+          });
         });
       }
     }
@@ -14113,30 +14126,26 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "popover", on: { click: _vm.click } },
-    [
-      _vm.visible
-        ? _c(
-            "div",
-            {
-              staticClass: "content-wrapper",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                }
+  return _c("div", { staticClass: "popover", on: { click: _vm.click } }, [
+    _vm.visible
+      ? _c(
+          "div",
+          {
+            ref: "contentWrapper",
+            staticClass: "content-wrapper",
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
               }
-            },
-            [_vm._t("content")],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
-  )
+            }
+          },
+          [_vm._t("content")],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("span", { ref: "triggerWrapper" }, [_vm._t("default")], 2)
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -14292,7 +14301,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63726" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55009" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
