@@ -1,6 +1,7 @@
 const expect = chai.expect;
 import Vue from 'vue'
-import Toast from '../src/toast'
+
+import Toast from '../scripts/toast/toast'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
@@ -44,22 +45,12 @@ describe('Toast', () => {
             vm.$el.remove()
             vm.$destroy()
         })
-        it('接收 enableHTML 属性.', () => {
-            const Constructor = Vue.extend(Toast)
-            const vm = new Constructor({
-                propsData: {enableHTML: true}
-            })
-            vm.$slots.default = ['<p id="test">hi<p>']
-            vm.$mount()
-            const p = vm.$el.querySelector('#test')
-            expect(p).to.exist
-            vm.$el.remove()
-            vm.$destroy()
-        })
         it('接收 position 属性.', () => {
             const Constructor = Vue.extend(Toast)
             const vm = new Constructor({
-                propsData: {position: 'top'}
+                propsData: {
+                    position: 'top'
+                }
             }).$mount()
             expect(vm.$el.classList.contains('position-top')).to.equal(true)
             vm.$el.remove()

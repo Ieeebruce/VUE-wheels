@@ -1,16 +1,16 @@
 const expect = chai.expect;
 import Vue from 'vue'
-import Tabs from '../src/tabs/tabs'
-import TabsHead from '../src/tabs/tabs-head'
-import TabsBody from '../src/tabs/tabs-body'
-import TabsItem from '../src/tabs/tabs-item'
-import TabsPane from '../src/tabs/tabs-pane'
+import Tabs from '../scripts/tabs/tabs'
+import TabsHead from '../scripts/tabs/tabs-head'
+import TabsBody from '../scripts/tabs/tabs-body'
+import TabsItem from '../scripts/tabs/tabs-item'
+import TabsPane from '../scripts/tabs/tabs-pane'
 
-Vue.component('w-tabs', Tabs)
-Vue.component('w-tabs-head', TabsHead)
-Vue.component('w-tabs-body', TabsBody)
-Vue.component('w-tabs-item', TabsItem)
-Vue.component('w-tabs-pane', TabsPane)
+Vue.component('g-tabs', Tabs)
+Vue.component('g-tabs-head', TabsHead)
+Vue.component('g-tabs-body', TabsBody)
+Vue.component('g-tabs-item', TabsItem)
+Vue.component('g-tabs-pane', TabsPane)
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
@@ -24,18 +24,18 @@ describe('Tabs', () => {
             const div = document.createElement('div')
             document.body.appendChild(div)
             div.innerHTML = `
-            <gulu-tabs selected="sports">
-                <gulu-tabs-head>
-                    <gulu-tabs-item name="woman"> 美女 </gulu-tabs-item>
-                    <gulu-tabs-item name="finance"> 财经 </gulu-tabs-item>
-                    <gulu-tabs-item name="sports"> 体育 </gulu-tabs-item>
-                </gulu-tabs-head>
-                <gulu-tabs-body>
-                    <gulu-tabs-pane name="woman"> 美女对应新闻 </gulu-tabs-pane>
-                    <gulu-tabs-pane name="sports"> 体育对应新闻 </gulu-tabs-pane>
-                    <gulu-tabs-pane name="finance"> 财经对应新闻 </gulu-tabs-pane>
-                </gulu-tabs-body>
-            </gulu-tabs>
+            <g-tabs selected="sports">
+                <g-tabs-head>
+                    <g-tabs-item name="woman"> 美女 </g-tabs-item>
+                    <g-tabs-item name="finance"> 财经 </g-tabs-item>
+                    <g-tabs-item name="sports"> 体育 </g-tabs-item>
+                </g-tabs-head>
+                <g-tabs-body>
+                    <g-tabs-pane name="woman"> 美女对应新闻 </g-tabs-pane>
+                    <g-tabs-pane name="sports"> 体育对应新闻 </g-tabs-pane>
+                    <g-tabs-pane name="finance"> 财经对应新闻 </g-tabs-pane>
+                </g-tabs-body>
+            </g-tabs>
             `
             const vm = new Vue({
                 el: div

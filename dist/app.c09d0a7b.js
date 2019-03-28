@@ -13373,6 +13373,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
 //
 //
 //
@@ -13385,39 +13392,70 @@ var _default = {
   name: "gulu-toast",
   props: {
     autoClose: {
-      type: Boolean,
-      default: false
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 2
-    },
-    message: {
-      type: String
+      type: [Boolean, Number],
+      default: 1,
+      validator: function validator(value) {
+        return value === false || typeof value === 'number';
+      }
     },
     closeButton: {
       type: Object,
-      default: {
-        text: 'close',
-        callback: function callback(toast) {
-          toast.close();
-        }
+      default: function _default() {
+        return {
+          text: 'close',
+          callback: undefined
+        };
+      }
+    },
+    enableHTML: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'middle'].indexOf(value) >= 0;
       }
     }
   },
   mounted: function mounted() {
-    var _this = this;
-
-    if (this.autoClose) {
-      setTimeout(function () {
-        _this.close();
-      }, this.autoCloseDelay * 1000);
+    this.updateStyles();
+    this.execAutoClose();
+  },
+  computed: {
+    toastClasses: function toastClasses() {
+      return _defineProperty({}, "position-".concat(this.position), true);
     }
   },
   methods: {
+    updateStyles: function updateStyles() {
+      var _this = this;
+
+      this.$nextTick(function () {
+        _this.$refs.line.style.height = "".concat(_this.$refs.toast.getBoundingClientRect().height, "px");
+      });
+    },
+    execAutoClose: function execAutoClose() {
+      var _this2 = this;
+
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this2.close();
+        }, this.autoClose * 1000);
+      }
+    },
     close: function close() {
       this.$el.remove();
+      this.$emit('close');
       this.$destroy();
+    },
+    log: function log() {
+      console.log('测试');
+    },
+    onClickClose: function onClickClose() {
+      this.close();
+      if (this.closeButton && typeof this.closeButton.callback === "function") this.closeButton.callback(this);
     }
   }
 };
@@ -13434,23 +13472,33 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "toast" }, [
-    _c("span", [_vm._t("default")], 2),
-    _vm._v(" "),
-    !_vm.autoClose
-      ? _c(
-          "span",
-          {
-            staticClass: "close",
-            on: {
-              click: function($event) {
-                return _vm.close()
-              }
-            }
-          },
-          [_vm._v(_vm._s(_vm.closeButton.text))]
-        )
-      : _vm._e()
+  return _c("div", { staticClass: "g-toast", class: _vm.toastClasses }, [
+    _c("div", { ref: "toast", staticClass: "toast" }, [
+      _c(
+        "div",
+        { staticClass: "message" },
+        [
+          !_vm.enableHTML ? _vm._t("default") : _vm._e(),
+          _vm._v(" "),
+          _vm.enableHTML
+            ? _c("div", {
+                domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+              })
+            : _vm._e()
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { ref: "line", staticClass: "line" }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v(_vm._s(_vm.closeButton.text))]
+          )
+        : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = []

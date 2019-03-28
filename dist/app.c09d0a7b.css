@@ -877,27 +877,86 @@ to {
 }.main[data-v-be6c98] {
   background-color: #666;
   flex-grow: 1;
-}.toast[data-v-6822df] {
+}@keyframes fade-in-data-v-6822df {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@keyframes slide-up-data-v-6822df {
+0% {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0%);
+}
+}
+@keyframes slide-down-data-v-6822df {
+0% {
+    opacity: 0;
+    transform: translateY(100%);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0%);
+}
+}
+.g-toast[data-v-6822df] {
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+}
+.g-toast.position-top[data-v-6822df] {
+  top: 0;
+}
+.g-toast.position-top .toast[data-v-6822df] {
+  animation: slide-up-data-v-6822df 500ms;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.g-toast.position-bottom[data-v-6822df] {
+  bottom: 0;
+}
+.g-toast.position-bottom .toast[data-v-6822df] {
+  animation: slide-down-data-v-6822df 500ms;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.g-toast.position-middle[data-v-6822df] {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.g-toast.position-middle .toast[data-v-6822df] {
+  animation: fade-in-data-v-6822df 500ms;
+}
+.toast[data-v-6822df] {
   font-size: 14px;
   min-height: 40px;
-  line-height: 40px;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  width: 50%;
-  color: white;
+  line-height: 1.8rem;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  padding: 0 16px;
   display: flex;
+  align-items: center;
 }
-.toast > span[data-v-6822df] {
-  flex-grow: 6;
-  text-align: center;
+.toast .message[data-v-6822df] {
+  margin: 6px 0;
 }
 .toast .close[data-v-6822df] {
-  height: 40px;
-  flex-grow: 1;
-  border-left: 1px solid white;
+  padding-left: 16px;
+  flex-shrink: 0;
+  cursor: default;
+}
+.toast .line[data-v-6822df] {
+  border-left: 1px solid #d4d4d4;
+  height: 100%;
+  margin-left: 16px;
 }*[data-v-ba0ffe] {
   margin: 0;
   padding: 0;
