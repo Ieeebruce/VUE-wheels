@@ -922,7 +922,9 @@ to {
   justify-content: center;
   align-items: center;
   padding: 0 1em;
-}.tabs-body[data-v-0bfff7] {}.tabs-item[data-v-ecd931] {
+}.tabs-body[data-v-0bfff7] {
+    border: 1px solid #ccc;
+}.tabs-item[data-v-ecd931] {
   flex-shrink: 0;
   padding: 0 1em;
   height: 100%;

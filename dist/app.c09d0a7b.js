@@ -13532,13 +13532,14 @@ var _default = {
   props: {
     selected: {
       type: String,
-      required: true
+      required: true //必填的字符串
+
     },
     direction: {
       type: String,
-      default: 'horizontal',
+      default: "horizontal",
       validator: function validator(value) {
-        return ['horizontal', 'vertical'].indexOf(value) >= 0;
+        return ["horizontal", "vertical"].indexOf(value) >= 0;
       }
     }
   },
@@ -13555,17 +13556,17 @@ var _default = {
   methods: {
     checkChildren: function checkChildren() {
       if (this.$children.length === 0) {
-        console && console.warn && console.warn('tabs的子组件应该是tabs-head和tabs-body，但你没有写子组件');
+        console && console.warn && console.warn("tabs的子组件应该是tabs-head和tabs-body，但你没有写子组件");
       }
     },
     selectTab: function selectTab() {
       var _this = this;
 
       this.$children.forEach(function (vm) {
-        if (vm.$options.name === 'gulu-tabsHead') {
+        if (vm.$options.name === "gulu-tabsHead") {
           vm.$children.forEach(function (childVm) {
-            if (childVm.$options.name === 'gulu-tabsItem' && childVm.name === _this.selected) {
-              _this.eventBus.$emit('update:selected', _this.selected, childVm);
+            if (childVm.$options.name === "gulu-tabsItem" && childVm.name === _this.selected) {
+              _this.eventBus.$emit("update:selected", _this.selected, childVm);
             }
           });
         }
@@ -13942,7 +13943,9 @@ var _default = {
     var _this = this;
 
     this.eventBus.$on('update:selected', function (name) {
+      console.log(1);
       _this.active = name === _this.name;
+      console.log(_this.active);
     });
   }
 };
@@ -13959,14 +13962,23 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.active
-    ? _c(
-        "div",
-        { staticClass: "tabs-pane", class: _vm.classes },
-        [_vm._t("default")],
-        2
-      )
-    : _vm._e()
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.active,
+          expression: "active"
+        }
+      ],
+      staticClass: "tabs-pane",
+      class: _vm.classes
+    },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -14118,7 +14130,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51385" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59700" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

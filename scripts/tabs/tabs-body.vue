@@ -12,5 +12,7 @@
     }
 </script>
 <style scoped>
-    .tabs-body {}
+    .tabs-body {
+        border: 1px solid #ccc;
+    }
 </style>
