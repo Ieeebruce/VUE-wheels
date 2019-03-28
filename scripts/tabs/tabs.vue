@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs">
+  <div class="tabs" >
     <slot></slot>
   </div>
 </template>
@@ -11,6 +11,7 @@ export default {
   props: {
     selected: {
       type: String,
+      default:'undefined',
       required: true //必填的字符串
     },
     direction: {

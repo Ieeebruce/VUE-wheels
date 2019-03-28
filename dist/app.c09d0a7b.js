@@ -13532,6 +13532,7 @@ var _default = {
   props: {
     selected: {
       type: String,
+      default: 'undefined',
       required: true //必填的字符串
 
     },
@@ -13943,9 +13944,7 @@ var _default = {
     var _this = this;
 
     this.eventBus.$on('update:selected', function (name) {
-      console.log(1);
       _this.active = name === _this.name;
-      console.log(_this.active);
     });
   }
 };
@@ -14130,7 +14129,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59700" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49936" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

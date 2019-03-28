@@ -27,9 +27,7 @@
         },
         created(){
             this.eventBus.$on('update:selected', (name) => {
-                console.log(1)
                 this.active = name === this.name;
-                console.log(this.active)
             })
         }
     }
