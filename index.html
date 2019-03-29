@@ -12,11 +12,17 @@
 <body>
     <div id="app">
         <!-- <div style="height:1000px;"></div> -->
+            <g-popover >
+                <template slot="content">
+                    <div>弹出的内容</div>
+                </template>
+                <g-button>click</g-button>
+            </g-popover>
             <g-popover position="right">
                 <template slot="content">
                     <div>弹出的内容</div>
                 </template>
-                <button>click</button>
+                <g-button>click</g-button>
             </g-popover>
 
     </div>
