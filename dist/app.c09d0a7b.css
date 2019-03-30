@@ -1,7 +1,8 @@
 .g-icon[data-v-81ca73] {
   width: 1em;
   height: 1em;
-}.g-button[data-v-0898d8] {
+}
+.g-button[data-v-0898d8] {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +74,8 @@ to {
 }
 .g-button.circle[data-v-0898d8] {
   border-radius: 32px;
-}.button-group[data-v-7c0ffe] {
+}
+.button-group[data-v-7c0ffe] {
   display: inline-flex;
   vertical-align: top;
 }
@@ -93,7 +95,8 @@ to {
 }
 .button-group > .g-button[data-v-7c0ffe]:hover, .button-group > .g-button[data-v-7c0ffe]:active {
   z-index: 1;
-}.wrapper[data-v-8ce94a] {
+}
+.wrapper[data-v-8ce94a] {
   font-size: 14px;
   display: inline-block;
 }
@@ -127,7 +130,8 @@ to {
 .wrapper > input[readonly][data-v-8ce94a] {
   border-color: #777;
   color: #999;
-}.col[data-v-722d96] {
+}
+.col[data-v-722d96] {
   height: 30px;
 }
 .col.span-1[data-v-722d96] {
@@ -857,27 +861,34 @@ to {
 .col.offset-wide-pc-24[data-v-722d96] {
     margin-left: 100%;
 }
-}.row[data-v-7d5e11] {
+}
+.row[data-v-7d5e11] {
   margin: 10px 0;
   display: flex;
-}.layout[data-v-9ec4e2] {
+}
+.layout[data-v-9ec4e2] {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 .layout.hasSider[data-v-9ec4e2] {
   flex-direction: row;
-}.header[data-v-48be29] {
+}
+.header[data-v-48be29] {
   background-color: #999;
-}.asider[data-v-f1950b] {
+}
+.asider[data-v-f1950b] {
   background-color: #888;
   width: 200px;
-}.footer[data-v-28013d] {
+}
+.footer[data-v-28013d] {
   background-color: #777;
-}.main[data-v-be6c98] {
+}
+.main[data-v-be6c98] {
   background-color: #666;
   flex-grow: 1;
-}@keyframes fade-in-data-v-6822df {
+}
+@keyframes fade-in-data-v-6822df {
 0% {
     opacity: 0;
 }
@@ -957,7 +968,8 @@ to {
   border-left: 1px solid #d4d4d4;
   height: 100%;
   margin-left: 16px;
-}*[data-v-ba0ffe] {
+}
+*[data-v-ba0ffe] {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -981,9 +993,11 @@ to {
   justify-content: center;
   align-items: center;
   padding: 0 1em;
-}.tabs-body[data-v-0bfff7] {
+}
+.tabs-body[data-v-0bfff7] {
     border: 1px solid #ccc;
-}.tabs-item[data-v-ecd931] {
+}
+.tabs-item[data-v-ecd931] {
   flex-shrink: 0;
   padding: 0 1em;
   height: 100%;
@@ -998,9 +1012,11 @@ to {
 .tabs-item.disabled[data-v-ecd931] {
   color: gray;
   cursor: default;
-}.tabs-pane[data-v-0a1aef] {
+}
+.tabs-pane[data-v-0a1aef] {
   padding: 1em;
-}.popover[data-v-66cd99] {
+}
+.popover[data-v-66cd99] {
   display: inline-block;
   vertical-align: top;
   position: relative;
