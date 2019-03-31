@@ -11,7 +11,7 @@ title: Button 按钮
 #### 浏览
 #
 <ClientOnly>
-<button-demos/>
+<button-demos></button-demos>
 </ClientOnly>
 
 #### 代码
@@ -20,7 +20,7 @@ title: Button 按钮
 <g-button>默认按钮</g-button>
 <g-button icon="settings">设置</g-button>
 <g-button icon="download" icon-position="right">下载</g-button>
-<g-button :loading="true">登录中</g-button>
+<g-button :load="true">登录中</g-button>
 ```
 ## 按钮组合
 

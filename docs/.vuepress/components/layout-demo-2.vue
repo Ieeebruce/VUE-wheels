@@ -8,9 +8,9 @@
                 <g-sider style="height: 100px; background: #7cb8ff; width:200px; color: black;">
                     sider
                 </g-sider>
-                <g-content style="height: 100px; background:deepskyblue;">
-                    content
-                </g-content>
+                <g-main style="height: 100px; background:deepskyblue;">
+                    main
+                </g-main>
             </g-layout>
             <g-footer style="height: 50px; background:lightskyblue;">
                 footer
@@ -23,14 +23,14 @@
     import Layout from '../../../scripts/layout/layout'
     import Header from '../../../scripts/layout/header'
     import Footer from '../../../scripts/layout/footer'
-    import Content from '../../../scripts/layout/content'
+    import Main from '../../../scripts/layout/main'
 
     export default {
         components: {
             'g-layout': Layout,
             'g-header': Header,
             'g-footer': Footer,
-            'g-content': Content
+            'g-main': Main
         }
     }
 </script>

@@ -6,7 +6,7 @@
   >
     <gulu-icon v-if="icon && !load" :name="icon" class="icon"></gulu-icon>
     <gulu-icon v-if="load" name="loading" class="icon loading"></gulu-icon>
-    <div class="content">
+    <div class="gcontent">
       <slot></slot>
     </div>
   </button>
@@ -73,7 +73,7 @@ export default {
   $border-width: 1px;
 
   display: inline-flex;
-  justify-content: center;
+  justify-gcontent: center;
   align-items: center;
   vertical-align: top;
   outline: none;
@@ -106,11 +106,11 @@ export default {
     order: 1;
     margin-right: 0.3em;
   }
-  > .content {
+  > .gcontent {
     order: 2;
   }
   &.icon-right {
-    > .content {
+    > .gcontent {
       order: 1;
     }
     > .icon {
