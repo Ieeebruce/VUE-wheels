@@ -1,6 +1,6 @@
 {
-  "name": "Bruce-UI",
-  "version": "0.0.1",
+  "name": "Bruceui",
+  "version": "0.9.0",
   "description": "UI框架",
   "main": "index.js",
   "scripts": {

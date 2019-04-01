@@ -1,5 +1,5 @@
 module.exports = {
-    base:'/Vue-UI/',
+    base:'/VUE-wheels/',
     title: 'Vue-UI',
     description: '一个易用的UI框架',
     themeConfig: {
