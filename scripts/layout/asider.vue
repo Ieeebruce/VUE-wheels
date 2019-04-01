@@ -4,8 +4,7 @@
   </div>
 </template>
 <script>
-name:"g-asider"
-export default {};
+export default { name: "g-asider" };
 </script>
 <style lang="scss" scoped>
 .asider {

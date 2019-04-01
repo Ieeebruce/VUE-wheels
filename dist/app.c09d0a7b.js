@@ -13141,7 +13141,7 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: "g-layout",
+  name: "gulu-layout",
   data: function data() {
     return {
       layoutClass: {
@@ -13280,15 +13280,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 //
 //
 //
 //
 //
-name: "g-asider";
-
-var _default = {};
+var _default = {
+  name: "g-asider"
+};
 exports.default = _default;
         var $f1950b = exports.default || module.exports;
       
@@ -14487,8 +14486,20 @@ new _vue.default({
   },
   created: function created() {},
   methods: {
-    showToast: function showToast() {
-      this.$toast("message");
+    showToast1: function showToast1() {
+      this.showToast('middle');
+    },
+    showToast2: function showToast2() {
+      this.showToast('top');
+    },
+    showToast3: function showToast3() {
+      this.showToast('bottom');
+    },
+    showToast: function showToast(position) {
+      this.$toast("\u66F4\u65B0\u6210\u529F,\u7B2C".concat(parseInt(Math.random() * 100), "\u53F7\u6309\u94AE"), {
+        enableHTML: false,
+        autoClose: false
+      });
     }
   }
 });
@@ -14520,7 +14531,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57981" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50607" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

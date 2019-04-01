@@ -11,15 +11,11 @@
 
 <body>
     <div id="app">
-        <div>
-            <g-button>默认按钮</g-button>
-            <g-button icon="settings">设置</g-button>
-            <g-button icon="download" icon-position="right">下载</g-button>
-            <g-button :load="true">登录中</g-button>
-        </div>
+        <g-button @click="$toast('点击弹出提示')">顶部弹出</g-button>
+        <g-button @click="$toast('点击弹出提示', {position:'middle'})">中间弹出</g-button>
+        <g-button @click="$toast('点击弹出提示', {position:'bottom'})">底部弹出</g-button>
     </div>
     <script src="/scripts/app.js"></script>
-    <script src="/scripts/svg.js"></script>
 </body>
 
 </html>

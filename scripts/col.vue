@@ -75,7 +75,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .col {
-  height: 30px;
   $class-pre: span-;
   @for $n from 1 through 24 {
     &.#{$class-pre}#{$n} {

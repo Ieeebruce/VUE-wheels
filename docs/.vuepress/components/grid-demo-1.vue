@@ -55,7 +55,7 @@
         margin: 10px 0;
     }
     .demoCol {
-        height: 50px;
+        height: 30px;
         border: 1px solid #ccc;
         background: #7CB8FF;
         display: flex;

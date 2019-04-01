@@ -1,8 +1,6 @@
 <template>
   <div>
-    <g-button @click="$toast('点击弹出提示')">顶部弹出</g-button>
-    <g-button @click="$toast('点击弹出提示', {position:'middle'})">中间弹出</g-button>
-    <g-button @click="$toast('点击弹出提示', {position:'bottom'})">底部弹出</g-button>
+    <g-button @click="$toast('点击弹出提示')">弹出</g-button>
   </div>
 </template>
 <style>

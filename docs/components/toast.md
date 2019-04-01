@@ -2,15 +2,8 @@
 title: Toast
 ---
 # Toast
-:::tip
-若点击按钮无显示，需要设置
-:::
-``` CSS
-.g-toast {
-    z-index: 30;
-}
-```
-## 设置弹出位置
+
+## 设置弹出
 
 #### 浏览
 #
@@ -22,12 +15,10 @@ title: Toast
 
 ```html
 <div>
-    <g-button @click="$toast('点击弹出提示')">顶部弹出</g-button>
-    <g-button @click="$toast('点击弹出提示', {position:'middle'})">中间弹出</g-button>
-    <g-button @click="$toast('点击弹出提示', {position:'bottom'})">底部弹出</g-button>
+    <g-button @click="$toast('点击弹出提示')">弹出</g-button>
 </div>
 ```
-## 自动或手动关闭
+<!-- ## 自动或手动关闭
 
 #### 浏览
 #
@@ -106,4 +97,4 @@ methods: {
 <div>
     <g-button @click="onClickButton">顶部弹出</g-button>
 </div>
-```
+``` -->

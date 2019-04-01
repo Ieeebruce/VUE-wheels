@@ -147,8 +147,6 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    top: 200px;
-    left: 200px;
   }
   .gulu-popover-content-wrapper {
     position: absolute;

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "g-layout",
+  name: "gulu-layout",
   data() {
     return {
       layoutClass: {

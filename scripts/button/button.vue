@@ -73,7 +73,7 @@ export default {
   $border-width: 1px;
 
   display: inline-flex;
-  justify-gcontent: center;
+  justify-content: center;
   align-items: center;
   vertical-align: top;
   outline: none;
